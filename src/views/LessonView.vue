@@ -3,14 +3,14 @@
   展示课程欢迎页面和学习指南
 -->
 <script setup>
-import LessonLayout from '../components/common/LessonLayout.vue'
-import { useRouter } from 'vue-router'
+import LessonLayout from "../components/common/LessonLayout.vue";
+import { useRouter } from "vue-router";
 
-const router = useRouter()
+const router = useRouter();
 
 const startLearning = () => {
-  router.push({ name: 'lesson-01' })
-}
+  router.push({ name: "lesson-01" });
+};
 </script>
 
 <template>
@@ -23,7 +23,7 @@ const startLearning = () => {
       '模板语法与指令（插值、绑定、循环、条件）',
       '组件化开发与通信（Props、Emit、v-model）',
       '生命周期钩子与组合式函数',
-      '真实金融场景应用'
+      '真实金融场景应用',
     ]"
     difficulty="入门到进阶"
   >
@@ -31,7 +31,9 @@ const startLearning = () => {
     <div class="welcome-content">
       <div class="intro-section">
         <h2>💼 为什么选择金融场景？</h2>
-        <p>金融应用涉及大量的数据展示、计算和交互，非常适合学习前端框架的核心特性：</p>
+        <p>
+          金融应用涉及大量的数据展示、计算和交互，非常适合学习前端框架的核心特性：
+        </p>
         <ul>
           <li>📊 <strong>数据展示</strong>：股票列表、账户余额、投资组合</li>
           <li>🧮 <strong>实时计算</strong>：收益率、汇率转换、理财收益</li>
@@ -97,7 +99,9 @@ const startLearning = () => {
     <!-- 学习建议 -->
     <template #tips>
       <ul>
-        <li>📖 <strong>循序渐进</strong>：按照课程顺序学习，每节课都有配套练习</li>
+        <li>
+          📖 <strong>循序渐进</strong>：按照课程顺序学习，每节课都有配套练习
+        </li>
         <li>✍️ <strong>动手实践</strong>：务必自己敲代码，不要复制粘贴</li>
         <li>🤔 <strong>理解原理</strong>：不仅要知其然，更要知其所以然</li>
         <li>💬 <strong>及时提问</strong>：遇到问题及时向老师或同学请教</li>
@@ -109,7 +113,7 @@ const startLearning = () => {
 
 <style scoped>
 .welcome-content {
-  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  font-family: "Microsoft YaHei", Arial, sans-serif;
 }
 
 .intro-section {

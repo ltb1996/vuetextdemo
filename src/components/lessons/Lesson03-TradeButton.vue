@@ -9,86 +9,86 @@
   金融场景：实现买入卖出按钮的交互功能
 -->
 <script setup>
-import { ref } from 'vue'
-import LessonLayout from '../common/LessonLayout.vue'
+import { ref } from "vue";
+import LessonLayout from "../common/LessonLayout.vue";
 
 // ==================== 1. 响应式数据（ref）====================
 // ref() 可以让数据变成响应式的，数据改变时页面会自动更新
-const stockName = ref('腾讯控股')
-const currentPrice = ref(385.60)
-const shares = ref(100)          // 持有股数
-const clickCount = ref(0)        // 点击次数
-const tradeHistory = ref([])     // 交易记录
+const stockName = ref("腾讯控股");
+const currentPrice = ref(385.6);
+const shares = ref(100); // 持有股数
+const clickCount = ref(0); // 点击次数
+const tradeHistory = ref([]); // 交易记录
 
 // ==================== 2. 事件处理函数 ====================
 
 // 买入股票
 function buyStock() {
-  shares.value += 10
-  clickCount.value++
+  shares.value += 10;
+  clickCount.value++;
 
   // 添加交易记录
   const record = {
-    type: '买入',
+    type: "买入",
     amount: 10,
     price: currentPrice.value,
-    time: new Date().toLocaleTimeString()
-  }
-  tradeHistory.value.unshift(record) // 添加到数组开头
+    time: new Date().toLocaleTimeString(),
+  };
+  tradeHistory.value.unshift(record); // 添加到数组开头
 
-  alert(`买入成功！已购买 10 股 ${stockName.value}`)
+  alert(`买入成功！已购买 10 股 ${stockName.value}`);
 }
 
 // 卖出股票
 function sellStock() {
   if (shares.value < 10) {
-    alert('股票数量不足，无法卖出！')
-    return
+    alert("股票数量不足，无法卖出！");
+    return;
   }
 
-  shares.value -= 10
-  clickCount.value++
+  shares.value -= 10;
+  clickCount.value++;
 
   // 添加交易记录
   const record = {
-    type: '卖出',
+    type: "卖出",
     amount: 10,
     price: currentPrice.value,
-    time: new Date().toLocaleTimeString()
-  }
-  tradeHistory.value.unshift(record)
+    time: new Date().toLocaleTimeString(),
+  };
+  tradeHistory.value.unshift(record);
 
-  alert(`卖出成功！已卖出 10 股 ${stockName.value}`)
+  alert(`卖出成功！已卖出 10 股 ${stockName.value}`);
 }
 
 // 带参数的函数：买入指定数量
 function buyStockWithAmount(amount) {
-  shares.value += amount
-  clickCount.value++
+  shares.value += amount;
+  clickCount.value++;
 
   const record = {
-    type: '买入',
+    type: "买入",
     amount: amount,
     price: currentPrice.value,
-    time: new Date().toLocaleTimeString()
-  }
-  tradeHistory.value.unshift(record)
+    time: new Date().toLocaleTimeString(),
+  };
+  tradeHistory.value.unshift(record);
 }
 
 // 事件对象示例：处理鼠标移入
 function handleMouseEnter(event) {
-  console.log('鼠标移入了', event.target.textContent)
-  event.target.style.transform = 'scale(1.05)'
+  console.log("鼠标移入了", event.target.textContent);
+  event.target.style.transform = "scale(1.05)";
 }
 
 function handleMouseLeave(event) {
-  event.target.style.transform = 'scale(1)'
+  event.target.style.transform = "scale(1)";
 }
 
 // 清空交易记录
 function clearHistory() {
-  if (confirm('确定要清空所有交易记录吗？')) {
-    tradeHistory.value = []
+  if (confirm("确定要清空所有交易记录吗？")) {
+    tradeHistory.value = [];
   }
 }
 </script>
@@ -102,7 +102,7 @@ function clearHistory() {
       '简写形式：v-on:click 可以简写为 @click',
       '可以直接在事件中调用方法，或写简单的表达式',
       '事件处理函数可以接收参数和 event 对象',
-      '常见事件：click、input、submit、mouseenter、mouseleave 等'
+      '常见事件：click、input、submit、mouseenter、mouseleave 等',
     ]"
     difficulty="⭐"
   >
@@ -137,19 +137,9 @@ function clearHistory() {
           <h5>📌 示例1：基础事件绑定</h5>
           <div class="button-group">
             <!-- 使用 @click 绑定点击事件 -->
-            <button
-              class="buy-btn"
-              @click="buyStock"
-            >
-              买入 10股
-            </button>
+            <button class="buy-btn" @click="buyStock">买入 10股</button>
 
-            <button
-              class="sell-btn"
-              @click="sellStock"
-            >
-              卖出 10股
-            </button>
+            <button class="sell-btn" @click="sellStock">卖出 10股</button>
           </div>
         </div>
 
@@ -158,24 +148,15 @@ function clearHistory() {
           <h5>📌 示例2：事件处理函数传参</h5>
           <div class="button-group">
             <!-- 调用函数时可以传递参数 -->
-            <button
-              class="buy-btn-small"
-              @click="buyStockWithAmount(50)"
-            >
+            <button class="buy-btn-small" @click="buyStockWithAmount(50)">
               买入 50股
             </button>
 
-            <button
-              class="buy-btn-small"
-              @click="buyStockWithAmount(100)"
-            >
+            <button class="buy-btn-small" @click="buyStockWithAmount(100)">
               买入 100股
             </button>
 
-            <button
-              class="buy-btn-small"
-              @click="buyStockWithAmount(500)"
-            >
+            <button class="buy-btn-small" @click="buyStockWithAmount(500)">
               买入 500股
             </button>
           </div>
@@ -186,24 +167,11 @@ function clearHistory() {
           <h5>📌 示例3：内联表达式（适用于简单操作）</h5>
           <div class="button-group">
             <!-- 直接在事件中写表达式 -->
-            <button
-              class="action-btn"
-              @click="shares += 1"
-            >
-              +1股
-            </button>
+            <button class="action-btn" @click="shares += 1">+1股</button>
 
-            <button
-              class="action-btn"
-              @click="shares -= 1"
-            >
-              -1股
-            </button>
+            <button class="action-btn" @click="shares -= 1">-1股</button>
 
-            <button
-              class="action-btn"
-              @click="clickCount++"
-            >
+            <button class="action-btn" @click="clickCount++">
               点击计数 +1
             </button>
           </div>
@@ -269,7 +237,8 @@ function buyStock() {
   alert('买入成功！')
 }</code></pre>
         <p class="explain-text">
-          <code>@click</code> 是 <code>v-on:click</code> 的简写，当按钮被点击时，会调用 buyStock 函数
+          <code>@click</code> 是
+          <code>v-on:click</code> 的简写，当按钮被点击时，会调用 buyStock 函数
         </p>
       </div>
 
@@ -281,9 +250,7 @@ function buyStock() {
 function buyStockWithAmount(amount) {
   shares.value += amount
 }</code></pre>
-        <p class="explain-text">
-          可以在调用函数时传递参数，实现更灵活的交互
-        </p>
+        <p class="explain-text">可以在调用函数时传递参数，实现更灵活的交互</p>
       </div>
 
       <div class="explain-section">
@@ -324,7 +291,8 @@ function buyStockWithAmount(amount) {
     <div class="ref-explanation">
       <h3>🔄 响应式数据：ref()</h3>
       <p class="intro-text">
-        本课中我们首次使用了 <code>ref()</code>，它可以让数据变成<strong>响应式的</strong>。
+        本课中我们首次使用了
+        <code>ref()</code>，它可以让数据变成<strong>响应式的</strong>。
         什么是响应式？就是当数据改变时，页面会<strong>自动更新</strong>。
       </p>
       <pre><code>// 导入 ref
@@ -340,7 +308,8 @@ shares.value += 10
 &lt;div&gt;{{ shares }}&lt;/div&gt;</code></pre>
       <p class="note-text">
         📝 注意：在 &lt;script&gt; 中修改 ref 数据时要加 <code>.value</code>，
-        但在 &lt;template&gt; 中使用时不需要加。ref 的详细用法会在第4课深入学习。
+        但在 &lt;template&gt; 中使用时不需要加。ref
+        的详细用法会在第4课深入学习。
       </p>
     </div>
 
@@ -351,9 +320,17 @@ shares.value += 10
         <ol>
           <li>添加一个"全部卖出"按钮，点击后将 <code>shares</code> 设置为 0</li>
           <li>添加一个"重置"按钮，点击后将所有数据恢复初始值</li>
-          <li>给买入/卖出按钮添加 <code>@mouseenter</code> 事件，鼠标悬停时在控制台打印信息</li>
-          <li>创建一个"快速交易"区域，添加多个按钮：买入 1、5、10、50、100 股</li>
-          <li><strong>挑战</strong>：添加一个输入框，让用户自定义买入数量，然后点击按钮执行交易</li>
+          <li>
+            给买入/卖出按钮添加
+            <code>@mouseenter</code> 事件，鼠标悬停时在控制台打印信息
+          </li>
+          <li>
+            创建一个"快速交易"区域，添加多个按钮：买入 1、5、10、50、100 股
+          </li>
+          <li>
+            <strong>挑战</strong
+            >：添加一个输入框，让用户自定义买入数量，然后点击按钮执行交易
+          </li>
         </ol>
       </div>
     </template>
@@ -361,11 +338,24 @@ shares.value += 10
     <!-- ==================== 6. 学习小贴士 ==================== -->
     <template #tips>
       <ul>
-        <li><strong>v-on 简写为 @</strong>，例如 v-on:click 简写为 @click，这是最常用的写法</li>
-        <li><strong>事件处理函数命名建议</strong>：使用 handle/on 开头，如 handleClick、onSubmit</li>
-        <li><strong>简单操作用内联表达式</strong>，复杂逻辑用函数，保持代码清晰</li>
-        <li><strong>ref 数据在 script 中需要 .value</strong>，在 template 中不需要</li>
-        <li><strong>金融系统的最佳实践</strong>：重要操作（如卖出全部）应该有二次确认（使用 confirm）</li>
+        <li>
+          <strong>v-on 简写为 @</strong>，例如 v-on:click 简写为
+          @click，这是最常用的写法
+        </li>
+        <li>
+          <strong>事件处理函数命名建议</strong>：使用 handle/on 开头，如
+          handleClick、onSubmit
+        </li>
+        <li>
+          <strong>简单操作用内联表达式</strong>，复杂逻辑用函数，保持代码清晰
+        </li>
+        <li>
+          <strong>ref 数据在 script 中需要 .value</strong>，在 template 中不需要
+        </li>
+        <li>
+          <strong>金融系统的最佳实践</strong
+          >：重要操作（如卖出全部）应该有二次确认（使用 confirm）
+        </li>
       </ul>
     </template>
   </LessonLayout>
@@ -451,7 +441,8 @@ shares.value += 10
 }
 
 /* 按钮样式 */
-.buy-btn, .sell-btn {
+.buy-btn,
+.sell-btn {
   flex: 1;
   padding: 12px 24px;
   font-size: 16px;
@@ -482,7 +473,8 @@ shares.value += 10
   box-shadow: 0 4px 12px rgba(82, 196, 26, 0.4);
 }
 
-.buy-btn-small, .action-btn {
+.buy-btn-small,
+.action-btn {
   padding: 10px 20px;
   font-size: 14px;
   font-weight: 500;

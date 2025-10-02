@@ -3,7 +3,7 @@
   包含左侧导航栏和右侧内容区域
 -->
 <script setup>
-import LessonNavigation from './components/common/LessonNavigation.vue'
+import LessonNavigation from "./components/common/LessonNavigation.vue";
 </script>
 
 <template>
@@ -27,7 +27,8 @@ import LessonNavigation from './components/common/LessonNavigation.vue'
 }
 
 body {
-  font-family: 'Microsoft YaHei', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Microsoft YaHei", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
   background: #f5f7fa;
 }
 
@@ -68,7 +69,7 @@ code {
   background: #f8f9fa;
   padding: 2px 6px;
   border-radius: 3px;
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
   font-size: 14px;
   color: #e83e8c;
 }
@@ -84,6 +85,6 @@ code {
 
 /* 按钮通用样式 */
 button {
-  font-family: 'Microsoft YaHei', sans-serif;
+  font-family: "Microsoft YaHei", sans-serif;
 }
 </style>

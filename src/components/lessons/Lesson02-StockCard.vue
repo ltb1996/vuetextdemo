@@ -9,29 +9,30 @@
   金融场景：根据股票涨跌动态设置颜色和样式
 -->
 <script setup>
-import LessonLayout from '../common/LessonLayout.vue'
+import LessonLayout from "../common/LessonLayout.vue";
 
 // ==================== 1. 股票数据 ====================
-const stockName = '贵州茅台'
-const stockCode = '600519'
-const currentPrice = 1688.50
-const changeAmount = 25.30     // 涨跌额
-const changePercent = 1.52     // 涨跌幅 %
+const stockName = "贵州茅台";
+const stockCode = "600519";
+const currentPrice = 1688.5;
+const changeAmount = 25.3; // 涨跌额
+const changePercent = 1.52; // 涨跌幅 %
 
 // 判断是涨还是跌
-const isRising = changeAmount > 0
+const isRising = changeAmount > 0;
 
 // 动态颜色：涨红跌绿
-const priceColor = isRising ? '#ff4d4f' : '#52c41a'
+const priceColor = isRising ? "#ff4d4f" : "#52c41a";
 
 // 动态 CSS 类名
-const trendClass = isRising ? 'rising' : 'falling'
+const trendClass = isRising ? "rising" : "falling";
 
 // 股票图标（使用emoji模拟）
-const stockIcon = '📈'
+const stockIcon = "📈";
 
 // 股票Logo URL（模拟）
-const logoUrl = 'https://via.placeholder.com/60x60/667eea/ffffff?text=' + stockCode
+const logoUrl =
+  "https://via.placeholder.com/60x60/667eea/ffffff?text=" + stockCode;
 </script>
 
 <template>
@@ -43,7 +44,7 @@ const logoUrl = 'https://via.placeholder.com/60x60/667eea/ffffff?text=' + stockC
       '简写形式：v-bind:class 可以简写为 :class',
       ':style 可以绑定内联样式对象',
       ':class 可以绑定类名，实现动态样式切换',
-      '可以绑定任何 HTML 属性：src、href、title、disabled 等'
+      '可以绑定任何 HTML 属性：src、href、title、disabled 等',
     ]"
     difficulty="⭐"
   >
@@ -78,11 +79,11 @@ const logoUrl = 'https://via.placeholder.com/60x60/667eea/ffffff?text=' + stockC
               fontWeight: 'bold',
               backgroundColor: isRising ? '#fff1f0' : '#f6ffed',
               padding: '8px 12px',
-              borderRadius: '6px'
+              borderRadius: '6px',
             }"
           >
-            {{ isRising ? '+' : '' }}{{ changeAmount }}
-            ({{ isRising ? '+' : '' }}{{ changePercent }}%)
+            {{ isRising ? "+" : "" }}{{ changeAmount }} ({{ isRising ? "+" : ""
+            }}{{ changePercent }}%)
           </div>
         </div>
       </div>
@@ -95,12 +96,7 @@ const logoUrl = 'https://via.placeholder.com/60x60/667eea/ffffff?text=' + stockC
 
         <div class="stock-body">
           <!-- 使用 :class 动态绑定类名 -->
-          <div
-            class="price-tag"
-            :class="trendClass"
-          >
-            ¥{{ currentPrice }}
-          </div>
+          <div class="price-tag" :class="trendClass">¥{{ currentPrice }}</div>
 
           <!-- :class 可以绑定对象，key 是类名，value 是布尔值 -->
           <div
@@ -108,10 +104,10 @@ const logoUrl = 'https://via.placeholder.com/60x60/667eea/ffffff?text=' + stockC
             :class="{
               'trend-up': isRising,
               'trend-down': !isRising,
-              'highlight': Math.abs(changePercent) > 5
+              highlight: Math.abs(changePercent) > 5,
             }"
           >
-            <span>{{ isRising ? '↑' : '↓' }}</span>
+            <span>{{ isRising ? "↑" : "↓" }}</span>
             {{ changeAmount }}
           </div>
         </div>
@@ -121,11 +117,7 @@ const logoUrl = 'https://via.placeholder.com/60x60/667eea/ffffff?text=' + stockC
       <div class="stock-card">
         <div class="stock-with-logo">
           <!-- 绑定 img 的 src 和 alt 属性 -->
-          <img
-            :src="logoUrl"
-            :alt="stockName + ' Logo'"
-            class="stock-logo"
-          />
+          <img :src="logoUrl" :alt="stockName + ' Logo'" class="stock-logo" />
           <div class="stock-info">
             <h4>{{ stockName }}</h4>
             <p>代码：{{ stockCode }}</p>
@@ -144,7 +136,8 @@ const logoUrl = 'https://via.placeholder.com/60x60/667eea/ffffff?text=' + stockC
   ¥{{ currentPrice }}
 &lt;/div&gt;</code></pre>
         <p class="explain-text">
-          <code>:style</code> 接收一个对象，对象的属性名是CSS属性（驼峰命名），值可以是变量或字符串
+          <code>:style</code>
+          接收一个对象，对象的属性名是CSS属性（驼峰命名），值可以是变量或字符串
         </p>
       </div>
 
@@ -192,7 +185,7 @@ const logoUrl = 'https://via.placeholder.com/60x60/667eea/ffffff?text=' + stockC
         <thead>
           <tr>
             <th>特性</th>
-            <th>插值表达式 {{ }}</th>
+            <th>插值表达式 {{}}</th>
             <th>属性绑定 v-bind / :</th>
           </tr>
         </thead>
@@ -221,10 +214,21 @@ const logoUrl = 'https://via.placeholder.com/60x60/667eea/ffffff?text=' + stockC
       <div class="practice-tasks">
         <p><strong>动手练习：</strong></p>
         <ol>
-          <li>添加一个 <code>volume</code> 变量表示成交量，如果成交量超过 10000，使用 :style 将文字颜色设为红色</li>
-          <li>添加一个 <code>isTrading</code> 布尔变量表示是否在交易时间，使用 :class 绑定不同的类名</li>
-          <li>尝试绑定一个 <code>title</code> 属性，鼠标悬停时显示股票的详细信息</li>
-          <li>创建一个"立即购买"按钮，使用 :disabled 绑定，当不在交易时间时禁用按钮</li>
+          <li>
+            添加一个 <code>volume</code> 变量表示成交量，如果成交量超过
+            10000，使用 :style 将文字颜色设为红色
+          </li>
+          <li>
+            添加一个 <code>isTrading</code> 布尔变量表示是否在交易时间，使用
+            :class 绑定不同的类名
+          </li>
+          <li>
+            尝试绑定一个 <code>title</code> 属性，鼠标悬停时显示股票的详细信息
+          </li>
+          <li>
+            创建一个"立即购买"按钮，使用 :disabled
+            绑定，当不在交易时间时禁用按钮
+          </li>
         </ol>
       </div>
     </template>
@@ -232,11 +236,23 @@ const logoUrl = 'https://via.placeholder.com/60x60/667eea/ffffff?text=' + stockC
     <!-- ==================== 6. 学习小贴士 ==================== -->
     <template #tips>
       <ul>
-        <li><strong>v-bind 可以简写为冒号 :</strong>，例如 v-bind:class 简写为 :class</li>
-        <li><strong>:style 中的 CSS 属性名使用驼峰命名</strong>，如 fontSize（而非 font-size）</li>
+        <li>
+          <strong>v-bind 可以简写为冒号 :</strong>，例如 v-bind:class 简写为
+          :class
+        </li>
+        <li>
+          <strong>:style 中的 CSS 属性名使用驼峰命名</strong>，如 fontSize（而非
+          font-size）
+        </li>
         <li><strong>:class 可以和普通 class 共存</strong>，Vue 会自动合并</li>
-        <li><strong>绑定对象时注意单引号</strong>，类名如果包含连字符需要加引号，如 'trend-up'</li>
-        <li><strong>金融场景的通用规则</strong>：涨用红色，跌用绿色（中国股市习惯）</li>
+        <li>
+          <strong>绑定对象时注意单引号</strong
+          >，类名如果包含连字符需要加引号，如 'trend-up'
+        </li>
+        <li>
+          <strong>金融场景的通用规则</strong
+          >：涨用红色，跌用绿色（中国股市习惯）
+        </li>
       </ul>
     </template>
   </LessonLayout>
@@ -340,8 +356,13 @@ const logoUrl = 'https://via.placeholder.com/60x60/667eea/ffffff?text=' + stockC
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
 /* Logo展示 */

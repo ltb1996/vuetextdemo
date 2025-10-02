@@ -7,24 +7,24 @@ defineProps({
   // 课程标题
   title: {
     type: String,
-    required: true
+    required: true,
   },
   // 课程描述
   description: {
     type: String,
-    default: ''
+    default: "",
   },
   // 知识点列表
   keyPoints: {
     type: Array,
-    default: () => []
+    default: () => [],
   },
   // 难度等级
   difficulty: {
     type: String,
-    default: '⭐'
-  }
-})
+    default: "⭐",
+  },
+});
 </script>
 
 <template>

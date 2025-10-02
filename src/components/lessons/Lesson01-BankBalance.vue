@@ -8,25 +8,25 @@
   金融场景：展示银行账户余额和用户信息
 -->
 <script setup>
-import LessonLayout from '../common/LessonLayout.vue'
+import LessonLayout from "../common/LessonLayout.vue";
 
 // ==================== 1. 数据声明 ====================
 // 在 Vue3 中，我们在 <script setup> 中声明的变量可以直接在模板中使用
 
 // 用户姓名
-const userName = '张三'
+const userName = "张三";
 
 // 账户余额（单位：元）
-const balance = 12345.67
+const balance = 12345.67;
 
 // 银行名称
-const bankName = '中国工商银行'
+const bankName = "中国工商银行";
 
 // 账户类型
-const accountType = '储蓄卡'
+const accountType = "储蓄卡";
 
 // 账号（隐藏中间部分）
-const accountNumber = '6222 **** **** 8888'
+const accountNumber = "6222 **** **** 8888";
 </script>
 
 <template>
@@ -37,7 +37,7 @@ const accountNumber = '6222 **** **** 8888'
       '插值表达式的语法：使用双大括号 {{ }} 包裹变量名',
       '在 <script setup> 中声明的变量可以直接在模板中使用',
       '插值表达式可以显示字符串、数字等基本类型数据',
-      '插值表达式内部可以使用简单的 JavaScript 表达式'
+      '插值表达式内部可以使用简单的 JavaScript 表达式',
     ]"
     difficulty="⭐"
   >
@@ -58,14 +58,10 @@ const accountNumber = '6222 **** **** 8888'
         </div>
 
         <!-- 第三部分：显示账号 -->
-        <div class="account-number">
-          卡号：{{ accountNumber }}
-        </div>
+        <div class="account-number">卡号：{{ accountNumber }}</div>
 
         <!-- 第四部分：显示持卡人姓名 -->
-        <div class="holder-name">
-          持卡人：{{ userName }}
-        </div>
+        <div class="holder-name">持卡人：{{ userName }}</div>
 
         <!-- 第五部分：显示余额 -->
         <div class="balance-display">
@@ -100,7 +96,9 @@ const accountNumber = '6222 **** **** 8888'
         <pre><code>const userName = '张三'       // 声明用户名
 const balance = 12345.67      // 声明账户余额</code></pre>
         <p class="explain-text">
-          使用 <code>const</code> 关键字声明变量（暂时用常量，后续课程会学习响应式数据）
+          使用
+          <code>const</code>
+          关键字声明变量（暂时用常量，后续课程会学习响应式数据）
         </p>
       </div>
 
@@ -109,7 +107,8 @@ const balance = 12345.67      // 声明账户余额</code></pre>
         <pre><code>&lt;div&gt;持卡人：<span style="color: #e83e8c">{{ userName }}</span>&lt;/div&gt;
 &lt;div&gt;余额：¥ <span style="color: #e83e8c">{{ balance.toFixed(2) }}</span>&lt;/div&gt;</code></pre>
         <p class="explain-text">
-          使用 <code>{{ }}</code> 双大括号包裹变量名，Vue 会自动将变量的值渲染到页面上
+          使用 <code>{{}}</code> 双大括号包裹变量名，Vue
+          会自动将变量的值渲染到页面上
         </p>
       </div>
 
@@ -126,22 +125,33 @@ const balance = 12345.67      // 声明账户余额</code></pre>
       <div class="practice-tasks">
         <p><strong>现在轮到你了！尝试完成以下任务：</strong></p>
         <ol>
-          <li>在 script 中添加一个新变量 <code>vipLevel</code>，值为 "黄金会员"</li>
+          <li>
+            在 script 中添加一个新变量 <code>vipLevel</code>，值为 "黄金会员"
+          </li>
           <li>在银行卡下方使用插值表达式显示这个会员等级</li>
           <li>添加一个 <code>depositAmount</code> 变量，表示今日存款金额</li>
           <li>使用插值表达式和算术运算，计算并显示：余额 + 存款后的总金额</li>
         </ol>
-        <p class="hint">💡 提示：可以直接在 {{ }} 中使用 + 运算符进行加法计算</p>
+        <p class="hint">💡 提示：可以直接在 {{}} 中使用 + 运算符进行加法计算</p>
       </div>
     </template>
 
     <!-- ==================== 5. 学习小贴士 ==================== -->
     <template #tips>
       <ul>
-        <li><strong>插值表达式只能用在元素的内容中</strong>，不能用在 HTML 属性中（属性绑定会在下一课学习）</li>
+        <li>
+          <strong>插值表达式只能用在元素的内容中</strong>，不能用在 HTML
+          属性中（属性绑定会在下一课学习）
+        </li>
         <li><strong>避免在插值表达式中写复杂逻辑</strong>，保持简洁易读</li>
-        <li><strong>插值表达式会自动转义 HTML</strong>，防止 XSS 攻击，这是 Vue 的安全机制</li>
-        <li><strong>使用 toFixed(2)</strong> 方法可以格式化数字，这在金融场景中非常常用</li>
+        <li>
+          <strong>插值表达式会自动转义 HTML</strong>，防止 XSS 攻击，这是 Vue
+          的安全机制
+        </li>
+        <li>
+          <strong>使用 toFixed(2)</strong>
+          方法可以格式化数字，这在金融场景中非常常用
+        </li>
       </ul>
     </template>
   </LessonLayout>
@@ -157,7 +167,7 @@ const balance = 12345.67      // 声明账户余额</code></pre>
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   max-width: 450px;
   margin: 20px auto;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .bank-name {
@@ -177,7 +187,7 @@ const balance = 12345.67      // 声明账户余额</code></pre>
   font-size: 16px;
   letter-spacing: 2px;
   margin-bottom: 15px;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
 }
 
 .holder-name {

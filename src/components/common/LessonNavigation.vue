@@ -3,91 +3,176 @@
   显示所有课程和项目的目录结构，供学生选择学习
 -->
 <script setup>
-import { ref, computed } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { ref, computed } from "vue";
+import { useRouter, useRoute } from "vue-router";
 
-const router = useRouter()
-const route = useRoute()
+const router = useRouter();
+const route = useRoute();
 
 // 课程数据结构
 const lessons = ref([
   {
     stage: 1,
-    title: '阶段一：Vue3基础语法',
-    icon: '📚',
+    title: "阶段一：Vue3基础语法",
+    icon: "📚",
     lessons: [
-      { id: 'lesson-01', name: '第1课：插值表达式', topic: '银行账户余额', difficulty: '⭐' },
-      { id: 'lesson-02', name: '第2课：属性绑定', topic: '股票卡片', difficulty: '⭐' },
-      { id: 'lesson-03', name: '第3课：事件处理', topic: '交易按钮', difficulty: '⭐' }
-    ]
+      {
+        id: "lesson-01",
+        name: "第1课：插值表达式",
+        topic: "银行账户余额",
+        difficulty: "⭐",
+      },
+      {
+        id: "lesson-02",
+        name: "第2课：属性绑定",
+        topic: "股票卡片",
+        difficulty: "⭐",
+      },
+      {
+        id: "lesson-03",
+        name: "第3课：事件处理",
+        topic: "交易按钮",
+        difficulty: "⭐",
+      },
+    ],
   },
   {
     stage: 2,
-    title: '阶段二：响应式数据',
-    icon: '🔄',
+    title: "阶段二：响应式数据",
+    icon: "🔄",
     lessons: [
-      { id: 'lesson-04', name: '第4课：ref/reactive', topic: '账户存取款', difficulty: '⭐⭐' },
-      { id: 'lesson-05', name: '第5课：computed', topic: '投资收益计算', difficulty: '⭐⭐' },
-      { id: 'lesson-06', name: '第6课：watch', topic: '余额预警', difficulty: '⭐⭐' }
-    ]
+      {
+        id: "lesson-04",
+        name: "第4课：ref/reactive",
+        topic: "账户存取款",
+        difficulty: "⭐⭐",
+      },
+      {
+        id: "lesson-05",
+        name: "第5课：computed",
+        topic: "投资收益计算",
+        difficulty: "⭐⭐",
+      },
+      {
+        id: "lesson-06",
+        name: "第6课：watch",
+        topic: "余额预警",
+        difficulty: "⭐⭐",
+      },
+    ],
   },
   {
     stage: 3,
-    title: '阶段三：列表与表单',
-    icon: '📝',
+    title: "阶段三：列表与表单",
+    icon: "📝",
     lessons: [
-      { id: 'lesson-07', name: '第7课：v-for', topic: '股票列表', difficulty: '⭐⭐' },
-      { id: 'lesson-08', name: '第8课：v-if/v-show', topic: 'VIP身份', difficulty: '⭐⭐' },
-      { id: 'lesson-09', name: '第9课：v-model', topic: '存款表单', difficulty: '⭐⭐' }
-    ]
+      {
+        id: "lesson-07",
+        name: "第7课：v-for",
+        topic: "股票列表",
+        difficulty: "⭐⭐",
+      },
+      {
+        id: "lesson-08",
+        name: "第8课：v-if/v-show",
+        topic: "VIP身份",
+        difficulty: "⭐⭐",
+      },
+      {
+        id: "lesson-09",
+        name: "第9课：v-model",
+        topic: "存款表单",
+        difficulty: "⭐⭐",
+      },
+    ],
   },
   {
     stage: 4,
-    title: '阶段四：组件通信',
-    icon: '🔗',
+    title: "阶段四：组件通信",
+    icon: "🔗",
     lessons: [
-      { id: 'lesson-10', name: '第10课：Props', topic: '股票持仓', difficulty: '⭐⭐⭐' },
-      { id: 'lesson-11', name: '第11课：Emit', topic: '交易面板', difficulty: '⭐⭐⭐' },
-      { id: 'lesson-12', name: '第12课：v-model组件', topic: '金额输入', difficulty: '⭐⭐⭐' }
-    ]
+      {
+        id: "lesson-10",
+        name: "第10课：Props",
+        topic: "股票持仓",
+        difficulty: "⭐⭐⭐",
+      },
+      {
+        id: "lesson-11",
+        name: "第11课：Emit",
+        topic: "交易面板",
+        difficulty: "⭐⭐⭐",
+      },
+      {
+        id: "lesson-12",
+        name: "第12课：v-model组件",
+        topic: "金额输入",
+        difficulty: "⭐⭐⭐",
+      },
+    ],
   },
   {
     stage: 5,
-    title: '阶段五：高级特性',
-    icon: '🚀',
+    title: "阶段五：高级特性",
+    icon: "🚀",
     lessons: [
-      { id: 'lesson-13', name: '第13课：生命周期', topic: '汇率查询', difficulty: '⭐⭐⭐' },
-      { id: 'lesson-14', name: '第14课：组合式函数', topic: '金融工具', difficulty: '⭐⭐⭐⭐' }
-    ]
-  }
-])
+      {
+        id: "lesson-13",
+        name: "第13课：生命周期",
+        topic: "汇率查询",
+        difficulty: "⭐⭐⭐",
+      },
+      {
+        id: "lesson-14",
+        name: "第14课：组合式函数",
+        topic: "金融工具",
+        difficulty: "⭐⭐⭐⭐",
+      },
+    ],
+  },
+]);
 
 // 实战项目
 const projects = ref([
-  { id: 'project-calculator', name: '理财计算器', icon: '🧮', difficulty: '⭐⭐⭐' },
-  { id: 'project-ledger', name: '个人账本', icon: '📒', difficulty: '⭐⭐⭐⭐' },
-  { id: 'project-portfolio', name: '投资组合追踪', icon: '📊', difficulty: '⭐⭐⭐⭐⭐' }
-])
+  {
+    id: "project-calculator",
+    name: "理财计算器",
+    icon: "🧮",
+    difficulty: "⭐⭐⭐",
+  },
+  {
+    id: "project-ledger",
+    name: "个人账本",
+    icon: "📒",
+    difficulty: "⭐⭐⭐⭐",
+  },
+  {
+    id: "project-portfolio",
+    name: "投资组合追踪",
+    icon: "📊",
+    difficulty: "⭐⭐⭐⭐⭐",
+  },
+]);
 
 // 当前激活的课程
-const activeLesson = computed(() => route.name)
+const activeLesson = computed(() => route.name);
 
 // 导航到指定课程
 const goToLesson = (lessonId) => {
-  router.push({ name: lessonId })
-}
+  router.push({ name: lessonId });
+};
 
 // 展开/收起状态
-const expandedStages = ref([1, 2, 3, 4, 5])
+const expandedStages = ref([1, 2, 3, 4, 5]);
 
 const toggleStage = (stage) => {
-  const index = expandedStages.value.indexOf(stage)
+  const index = expandedStages.value.indexOf(stage);
   if (index > -1) {
-    expandedStages.value.splice(index, 1)
+    expandedStages.value.splice(index, 1);
   } else {
-    expandedStages.value.push(stage)
+    expandedStages.value.push(stage);
   }
-}
+};
 </script>
 
 <template>
@@ -99,19 +184,12 @@ const toggleStage = (stage) => {
 
     <!-- 课程列表 -->
     <div class="nav-content">
-      <div
-        v-for="stage in lessons"
-        :key="stage.stage"
-        class="stage-section"
-      >
-        <div
-          class="stage-title"
-          @click="toggleStage(stage.stage)"
-        >
+      <div v-for="stage in lessons" :key="stage.stage" class="stage-section">
+        <div class="stage-title" @click="toggleStage(stage.stage)">
           <span class="stage-icon">{{ stage.icon }}</span>
           <span>{{ stage.title }}</span>
           <span class="expand-icon">
-            {{ expandedStages.includes(stage.stage) ? '▼' : '▶' }}
+            {{ expandedStages.includes(stage.stage) ? "▼" : "▶" }}
           </span>
         </div>
 
@@ -170,7 +248,7 @@ const toggleStage = (stage) => {
   background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
   border-right: 2px solid #dee2e6;
   overflow-y: auto;
-  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  font-family: "Microsoft YaHei", Arial, sans-serif;
 }
 
 .nav-header {
