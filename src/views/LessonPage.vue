@@ -4,17 +4,8 @@
       <!-- 导航栏 -->
       <nav class="lesson-nav">
         <button @click="goBack" class="back-button">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
           返回首页
@@ -34,22 +25,9 @@
 
       <!-- 底部导航 -->
       <div class="lesson-footer">
-        <button
-          v-if="prevLesson"
-          @click="navigateToLesson(prevLesson.path)"
-          class="nav-btn prev-btn"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+        <button v-if="prevLesson" @click="navigateToLesson(prevLesson.path)" class="nav-btn prev-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M15 18l-6-6 6-6" />
           </svg>
           <div>
@@ -60,26 +38,13 @@
 
         <div v-else></div>
 
-        <button
-          v-if="nextLesson"
-          @click="navigateToLesson(nextLesson.path)"
-          class="nav-btn next-btn"
-        >
+        <button v-if="nextLesson" @click="navigateToLesson(nextLesson.path)" class="nav-btn next-btn">
           <div>
             <span class="nav-label">下一课</span>
             <span class="nav-title">{{ nextLesson.title }}</span>
           </div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 18l6-6-6-6" />
           </svg>
         </button>
@@ -255,14 +220,14 @@ const navigateToLesson = (path) => {
   transform: translateY(-2px);
 }
 
-.nav-btn > div {
+.nav-btn>div {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.25rem;
 }
 
-.next-btn > div {
+.next-btn>div {
   align-items: flex-end;
 }
 

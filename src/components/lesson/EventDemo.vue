@@ -19,22 +19,12 @@
         </div>
 
         <div class="input-group">
-          <input
-            v-model="inputText"
-            @keyup.enter="addMessage"
-            placeholder="输入消息后按 Enter"
-            class="text-input"
-          />
+          <input v-model="inputText" @keyup.enter="addMessage" placeholder="输入消息后按 Enter" class="text-input" />
           <button @click="addMessage" class="btn-send">发送</button>
         </div>
 
         <div class="message-list">
-          <div
-            v-for="(msg, index) in messages"
-            :key="index"
-            class="message-item"
-            @click="selectMessage(msg)"
-          >
+          <div v-for="(msg, index) in messages" :key="index" class="message-item" @click="selectMessage(msg)">
             <span class="message-time">{{ msg.time }}</span>
             <span class="message-text">{{ msg.text }}</span>
           </div>

@@ -17,27 +17,13 @@
       <div class="preview-box">
         <div class="todo-container">
           <div class="input-group">
-            <input
-              v-model="newTodo"
-              @keyup.enter="addTodo"
-              placeholder="添加新任务..."
-              class="text-input"
-            />
+            <input v-model="newTodo" @keyup.enter="addTodo" placeholder="添加新任务..." class="text-input" />
             <button @click="addTodo" class="btn-add">添加</button>
           </div>
 
           <div class="todo-list">
-            <div
-              v-for="todo in todos"
-              :key="todo.id"
-              class="todo-item"
-              :class="{ completed: todo.completed }"
-            >
-              <input
-                type="checkbox"
-                v-model="todo.completed"
-                class="checkbox"
-              />
+            <div v-for="todo in todos" :key="todo.id" class="todo-item" :class="{ completed: todo.completed }">
+              <input type="checkbox" v-model="todo.completed" class="checkbox" />
               <span class="todo-text">{{ todo.text }}</span>
               <button @click="removeTodo(todo.id)" class="btn-remove">
                 删除

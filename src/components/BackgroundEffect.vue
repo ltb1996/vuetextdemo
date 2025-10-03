@@ -8,11 +8,7 @@
     <!-- UnicornStudio 动态背景 -->
     <div class="aura-background-component">
       <div class="aura-inner">
-        <div
-          ref="unicornContainer"
-          data-us-project="BqS5vTHVEpn6NiF0g8iJ"
-          class="unicorn-container"
-        ></div>
+        <div ref="unicornContainer" data-us-project="BqS5vTHVEpn6NiF0g8iJ" class="unicorn-container"></div>
       </div>
     </div>
   </div>
@@ -80,12 +76,10 @@ onMounted(() => {
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(88, 28, 135, 0.2) 0%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(88, 28, 135, 0.2) 0%,
+      rgba(0, 0, 0, 1) 50%,
+      rgba(0, 0, 0, 1) 100%);
 }
 
 .aura-background-component {

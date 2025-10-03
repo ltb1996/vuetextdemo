@@ -6,11 +6,7 @@
         <nav class="nav">
           <a href="#lessons" class="nav-link">基础教程</a>
           <a href="#features" class="nav-link">特性介绍</a>
-          <a
-            href="https://cn.vuejs.org"
-            target="_blank"
-            class="nav-link"
-          >官方文档</a>
+          <a href="https://cn.vuejs.org" target="_blank" class="nav-link">官方文档</a>
           <button @click="scrollToLessons" class="btn-primary">
             开始学习
           </button>
@@ -39,11 +35,7 @@
           <button @click="scrollToLessons" class="btn-start">
             查看课程
           </button>
-          <a
-            href="https://cn.vuejs.org/guide/introduction.html"
-            target="_blank"
-            class="btn-browse"
-          >
+          <a href="https://cn.vuejs.org/guide/introduction.html" target="_blank" class="btn-browse">
             阅读文档
           </a>
         </div>
@@ -98,13 +90,8 @@
         </div>
 
         <div class="lessons-grid">
-          <router-link
-            v-for="(lesson, index) in lessons"
-            :key="lesson.path"
-            :to="lesson.path"
-            class="lesson-card"
-            :style="{ animationDelay: `${index * 0.1}s` }"
-          >
+          <router-link v-for="(lesson, index) in lessons" :key="lesson.path" :to="lesson.path" class="lesson-card"
+            :style="{ animationDelay: `${index * 0.1}s` }">
             <div class="lesson-number">{{ index + 1 }}</div>
             <div class="lesson-icon">{{ lesson.icon }}</div>
             <h3 class="lesson-title">{{ lesson.title }}</h3>
@@ -116,17 +103,8 @@
               <span class="lesson-duration">{{ lesson.duration }}</span>
             </div>
             <div class="lesson-arrow">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
               </svg>
@@ -161,11 +139,7 @@
         </div>
 
         <div class="cta-center">
-          <a
-            href="https://cn.vuejs.org/tutorial/"
-            target="_blank"
-            class="btn-large"
-          >
+          <a href="https://cn.vuejs.org/tutorial/" target="_blank" class="btn-large">
             前往官方教程
           </a>
         </div>
@@ -175,9 +149,7 @@
     <footer class="footer">
       <p>
         Made with ❤️ using Vue 3 |
-        <a href="https://cn.vuejs.org" target="_blank" style="color: #42b883"
-          >Vue.js 官网</a
-        >
+        <a href="https://cn.vuejs.org" target="_blank" style="color: #42b883">Vue.js 官网</a>
       </p>
     </footer>
   </div>
@@ -355,10 +327,12 @@ const scrollToLessons = () => {
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -656,7 +630,7 @@ const scrollToLessons = () => {
   margin: 0 0 1rem 0;
 }
 
-.next-steps-content > p {
+.next-steps-content>p {
   font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 3rem;
@@ -732,6 +706,7 @@ const scrollToLessons = () => {
     opacity: 0;
     transform: translateY(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
