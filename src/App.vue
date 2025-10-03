@@ -1,9 +1,6 @@
 <template>
   <div id="app" class="app-container">
-    <!-- ¨IqÌo -->
     <BackgroundEffect />
-
-    <!-- ;…¹:ß -->
     <div class="content">
       <router-view />
     </div>
@@ -35,10 +32,11 @@ body {
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
+  background-color: #000;
 }
 
 .content {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 </style>
