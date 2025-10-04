@@ -38,29 +38,6 @@
         </button>
       </div>
     </div>
-
-    <div class="code-block">
-      <pre><code>&lt;template&gt;
-  &lt;!-- 基础事件监听 --&gt;
-  &lt;button @click="handleClick"&gt;点击&lt;/button&gt;
-
-  &lt;!-- 传递参数 --&gt;
-  &lt;button @click="greet('Hello')"&gt;打招呼&lt;/button&gt;
-
-  &lt;!-- 访问原生事件 --&gt;
-  &lt;button @click="handleEvent($event)"&gt;事件对象&lt;/button&gt;
-
-  &lt;!-- 事件修饰符 --&gt;
-  &lt;button @click.prevent="submit"&gt;阻止默认&lt;/button&gt;
-  &lt;input @keyup.enter="onEnter" /&gt;
-&lt;/template&gt;
-
-&lt;script setup&gt;
-const handleClick = () => {
-  console.log('按钮被点击了');
-};
-&lt;/script&gt;</code></pre>
-    </div>
   </div>
 </template>
 
@@ -286,21 +263,5 @@ const handlePrevent = () => {
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.15);
-}
-
-.code-block {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1rem;
-  overflow-x: auto;
-}
-
-.code-block pre {
-  margin: 0;
-  color: #e5e7eb;
-  font-family: 'Courier New', monospace;
-  font-size: 0.875rem;
-  line-height: 1.6;
 }
 </style>

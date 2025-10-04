@@ -69,28 +69,6 @@
         </button>
       </div>
     </div>
-
-    <div class="code-block">
-      <pre><code>&lt;template&gt;
-  &lt;!-- v-if / v-else-if / v-else --&gt;
-  &lt;div v-if="type === 'A'"&gt;A&lt;/div&gt;
-  &lt;div v-else-if="type === 'B'"&gt;B&lt;/div&gt;
-  &lt;div v-else&gt;Not A or B&lt;/div&gt;
-
-  &lt;!-- v-show --&gt;
-  &lt;div v-show="isVisible"&gt;可见内容&lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script setup&gt;
-import { ref } from 'vue';
-
-const type = ref('A');
-const isVisible = ref(true);
-
-// v-if: 条件为 false 时不渲染 DOM
-// v-show: 条件为 false 时隐藏 (display: none)
-&lt;/script&gt;</code></pre>
-    </div>
   </div>
 </template>
 
@@ -304,21 +282,5 @@ const isVisible = ref(true);
 
 .btn-toggle:hover {
   background: rgba(255, 255, 255, 0.15);
-}
-
-.code-block {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1rem;
-  overflow-x: auto;
-}
-
-.code-block pre {
-  margin: 0;
-  color: #e5e7eb;
-  font-family: 'Courier New', monospace;
-  font-size: 0.875rem;
-  line-height: 1.6;
 }
 </style>

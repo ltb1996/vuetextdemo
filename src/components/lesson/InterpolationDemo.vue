@@ -28,21 +28,6 @@
         <button @click="resetCount" class="btn-reset">重置</button>
       </div>
     </div>
-
-    <div class="code-block">
-      <pre><code>&lt;template&gt;
-  &lt;p&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;
-  &lt;p&gt;当前计数: &#123;&#123; count &#125;&#125;&lt;/p&gt;
-  &lt;p&gt;双倍计数: &#123;&#123; count * 2 &#125;&#125;&lt;/p&gt;
-&lt;/template&gt;
-
-&lt;script setup&gt;
-import { ref } from 'vue';
-
-const message = ref('Hello Vue 3!');
-const count = ref(0);
-&lt;/script&gt;</code></pre>
-    </div>
   </div>
 </template>
 
@@ -175,25 +160,5 @@ const resetCount = () => {
 
 .btn-reset:hover {
   background: rgba(239, 68, 68, 0.3);
-}
-
-.code-block {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1rem;
-  overflow-x: auto;
-}
-
-.code-block pre {
-  margin: 0;
-  color: #e5e7eb;
-  font-family: 'Courier New', monospace;
-  font-size: 0.875rem;
-  line-height: 1.6;
-}
-
-.code-block code {
-  color: #e5e7eb;
 }
 </style>

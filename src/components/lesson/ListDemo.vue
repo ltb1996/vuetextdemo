@@ -48,28 +48,6 @@
         <button @click="clearAll" class="btn-reset">清除全部</button>
       </div>
     </div>
-
-    <div class="code-block">
-      <pre><code>&lt;template&gt;
-  &lt;!-- 遍历数组 --&gt;
-  &lt;div v-for="item in items" :key="item.id"&gt;
-    &#123;&#123; item.text &#125;&#125;
-  &lt;/div&gt;
-
-  &lt;!-- 获取索引 --&gt;
-  &lt;div v-for="(item, index) in items" :key="item.id"&gt;
-    &#123;&#123; index &#125;&#125;: &#123;&#123; item.text &#125;&#125;
-  &lt;/div&gt;
-
-  &lt;!-- 遍历对象 --&gt;
-  &lt;div v-for="(value, key) in object" :key="key"&gt;
-    &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;
-  &lt;/div&gt;
-
-  &lt;!-- 遍历数字 --&gt;
-  &lt;span v-for="n in 10" :key="n"&gt;&#123;&#123; n &#125;&#125;&lt;/span&gt;
-&lt;/template&gt;</code></pre>
-    </div>
   </div>
 </template>
 
@@ -336,21 +314,5 @@ const clearAll = () => {
 
 .btn-reset:hover {
   background: rgba(239, 68, 68, 0.3);
-}
-
-.code-block {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1rem;
-  overflow-x: auto;
-}
-
-.code-block pre {
-  margin: 0;
-  color: #e5e7eb;
-  font-family: 'Courier New', monospace;
-  font-size: 0.875rem;
-  line-height: 1.6;
 }
 </style>

@@ -43,27 +43,6 @@
         <button @click="updateUser" class="btn-reset">更新用户</button>
       </div>
     </div>
-
-    <div class="code-block">
-      <pre><code>&lt;script setup&gt;
-import { ref, reactive } from 'vue';
-
-// 使用 ref 创建基本类型的响应式数据
-const clickCount = ref(0);
-const isActive = ref(true);
-
-// 使用 reactive 创建对象的响应式数据
-const user = reactive({
-  name: '张三',
-  age: 25,
-  email: 'zhangsan@example.com'
-});
-
-// 修改响应式数据
-clickCount.value++;  // ref 需要 .value
-user.name = '李四';   // reactive 直接修改
-&lt;/script&gt;</code></pre>
-    </div>
   </div>
 </template>
 
@@ -256,21 +235,5 @@ const updateUser = () => {
 
 .btn-reset:hover {
   background: rgba(59, 130, 246, 0.3);
-}
-
-.code-block {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1rem;
-  overflow-x: auto;
-}
-
-.code-block pre {
-  margin: 0;
-  color: #e5e7eb;
-  font-family: 'Courier New', monospace;
-  font-size: 0.875rem;
-  line-height: 1.6;
 }
 </style>
